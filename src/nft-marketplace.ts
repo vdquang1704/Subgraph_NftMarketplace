@@ -14,18 +14,11 @@ import { ERC1155Listed, ERC1155Sold, ERC20Listed, ERC20Sold, ERC721Listed, ERC72
 export function handleERC1155Listed(event: ERC1155ListedEvent): void {
   let entity = ERC1155Listed.load(event.transaction.from.toHex())
 
-  // Entities only exist after they have been saved to the store;
-  // `null` checks allow to create entities on demand
   if (!entity) {
     entity = new ERC1155Listed(event.transaction.from.toHex())
-
     // Entity fields can be set using simple assignments
     // entity.count = BigInt.fromI32(0)
   }
-
-  // BigInt and BigDecimal math are supported
-  // entity.count = entity.count + BigInt.fromI32(1)
-
   // Entity fields can be set based on event parameters
   entity.nftAddress = event.params.nftAddress
   entity.seller = event.params.seller
@@ -36,20 +29,11 @@ export function handleERC1155Listed(event: ERC1155ListedEvent): void {
 }
 
 export function handleERC1155Sold(event: ERC1155SoldEvent): void {
- let entity = ERC1155Sold.load(event.transaction.from.toHex())
+  let entity = ERC1155Sold.load(event.transaction.from.toHex())
 
-  // Entities only exist after they have been saved to the store;
-  // `null` checks allow to create entities on demand
   if (!entity) {
     entity = new ERC1155Sold(event.transaction.from.toHex())
-
-    // Entity fields can be set using simple assignments
-    // entity.count = BigInt.fromI32(0)
   }
-
-  // BigInt and BigDecimal math are supported
-  // entity.count = entity.count + BigInt.fromI32(1)
-
   // Entity fields can be set based on event parameters
   entity.nftAddress = event.params.nftAddress
   entity.seller = event.params.seller
@@ -61,92 +45,56 @@ export function handleERC1155Sold(event: ERC1155SoldEvent): void {
 }
 
 export function handleERC20Listed(event: ERC20ListedEvent): void {
- let entity = ERC20Listed.load(event.transaction.from.toHex())
+  let entity = ERC20Listed.load(event.transaction.from.toHex())
 
- // Entities only exist after they have been saved to the store;
- // `null` checks allow to create entities on demand
- if (!entity) {
+  if (!entity) {
    entity = new ERC20Listed(event.transaction.from.toHex())
-
-   // Entity fields can be set using simple assignments
-  //  entity.count = BigInt.fromI32(0)
- }
-
- // BigInt and BigDecimal math are supported
-//  entity.count = entity.count + BigInt.fromI32(1)
-
- // Entity fields can be set based on event parameters
- entity.tokenAddress = event.params.tokenAddress
- entity.seller = event.params.seller
- entity.price = event.params.price
- entity.amount = event.params.amount
- entity.save()
+  }
+  // Entity fields can be set based on event parameters
+  entity.tokenAddress = event.params.tokenAddress
+  entity.seller = event.params.seller
+  entity.price = event.params.price
+  entity.amount = event.params.amount
+  entity.save()
 }
 
 export function handleERC20Sold(event: ERC20SoldEvent): void { let entity = ERC20Sold.load(event.transaction.from.toHex())
-
- // Entities only exist after they have been saved to the store;
- // `null` checks allow to create entities on demand
- if (!entity) {
+  
+  if (!entity) {
    entity = new ERC20Sold(event.transaction.from.toHex())
-
-   // Entity fields can be set using simple assignments
-  //  entity.count = BigInt.fromI32(0)
- }
-
- // BigInt and BigDecimal math are supported
-//  entity.count = entity.count + BigInt.fromI32(1)
-
- // Entity fields can be set based on event parameters
- entity.tokenAddress = event.params.tokenAddress
- entity.seller = event.params.seller
- entity.buyer = event.params.buyer
- entity.amount = event.params.amount
- entity.save()
+  }
+  // Entity fields can be set based on event parameters
+  entity.tokenAddress = event.params.tokenAddress
+  entity.seller = event.params.seller
+  entity.buyer = event.params.buyer
+  entity.amount = event.params.amount
+  entity.save()
 }
 
 export function handleERC721Listed(event: ERC721ListedEvent): void { let entity = ERC721Listed.load(event.transaction.from.toHex())
 
- // Entities only exist after they have been saved to the store;
- // `null` checks allow to create entities on demand
- if (!entity) {
+  if (!entity) {
    entity = new ERC721Listed(event.transaction.from.toHex())
-
-   // Entity fields can be set using simple assignments
-  //  entity.count = BigInt.fromI32(0)
- }
-
- // BigInt and BigDecimal math are supported
-//  entity.count = entity.count + BigInt.fromI32(1)
-
- // Entity fields can be set based on event parameters
- entity.nftAddress = event.params.nftAddress
- entity.seller = event.params.seller
- entity.tokenId = event.params.tokenId
- entity.price = event.params.price
- entity.save()
+  }
+  // Entity fields can be set based on event parameters
+  entity.nftAddress = event.params.nftAddress
+  entity.seller = event.params.seller
+  entity.tokenId = event.params.tokenId
+  entity.price = event.params.price
+  entity.save()
 }
 
 export function handleERC721Sold(event: ERC721SoldEvent): void { let entity = ERC721Sold.load(event.transaction.from.toHex())
 
- // Entities only exist after they have been saved to the store;
- // `null` checks allow to create entities on demand
- if (!entity) {
+  if (!entity) {
    entity = new ERC721Sold(event.transaction.from.toHex())
-
-   // Entity fields can be set using simple assignments
-  //  entity.count = BigInt.fromI32(0)
- }
-
- // BigInt and BigDecimal math are supported
-//  entity.count = entity.count + BigInt.fromI32(1)
-
- // Entity fields can be set based on event parameters
- entity.nftAddress = event.params.nftAddress
- entity.seller = event.params.seller
- entity.buyer = event.params.buyer
- entity.tokenId = event.params.tokenId
- entity.price = event.params.price
- entity.save()}
+  }
+  // Entity fields can be set based on event parameters
+  entity.nftAddress = event.params.nftAddress
+  entity.seller = event.params.seller
+  entity.buyer = event.params.buyer
+  entity.tokenId = event.params.tokenId
+  entity.price = event.params.price
+  entity.save()}
 
 export function handleOwnershipTransferred(event: OwnershipTransferred): void {}
