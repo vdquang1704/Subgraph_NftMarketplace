@@ -1,6 +1,6 @@
 specVersion: 0.0.5
 schema:
-  file: ./schema.graphql
+  file: schema.graphql
 dataSources:
   - kind: ethereum
     name: NftMarketplace
@@ -28,7 +28,7 @@ dataSources:
         - OwnershipTransferred
       abis:
         - name: NftMarketplace
-          file: ./abis/NftMarketplace.json
+          file: NftMarketplace\abis\NftMarketplace.json
       eventHandlers:
         - event: ERC1155Listed(address,address,uint256,uint256,uint256)
           handler: handleERC1155Listed
@@ -56,4 +56,4 @@ dataSources:
           handler: handleERC721SoldInfo
         - event: OwnershipTransferred(indexed address,indexed address)
           handler: handleOwnershipTransferred
-      file: ./src/nft-marketplace.ts
+      file: NftMarketplace\NftMarketplace.wasm
