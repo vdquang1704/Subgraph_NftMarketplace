@@ -1,0 +1,59 @@
+specVersion: 0.0.5
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: NftMarketplace
+    network: goerli
+    source:
+      address: "0x13A5aAa2a3B312FC31D2442BB14A9AdA40de50B3"
+      abi: NftMarketplace
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - ERC1155Listed
+        - ERC1155ListedInfo
+        - ERC1155Sold
+        - ERC1155SoldInfo
+        - ERC20Listed
+        - ERC20ListedInfo
+        - ERC20Sold
+        - ERC20SoldInfo
+        - ERC721Listed
+        - ERC721ListedInfo
+        - ERC721Sold
+        - ERC721SoldInfo
+        - OwnershipTransferred
+      abis:
+        - name: NftMarketplace
+          file: ./abis/NftMarketplace.json
+      eventHandlers:
+        - event: ERC1155Listed(address,address,uint256,uint256,uint256)
+          handler: handleERC1155Listed
+        - event: ERC1155ListedInfo(uint256,uint256,uint256,uint256)
+          handler: handleERC1155ListedInfo
+        - event: ERC1155Sold(indexed address,address,indexed address,uint256,uint256,uint256)
+          handler: handleERC1155Sold
+        - event: ERC1155SoldInfo(uint256,uint256,uint256,uint256)
+          handler: handleERC1155SoldInfo
+        - event: ERC20Listed(address,address,uint256,uint256)
+          handler: handleERC20Listed
+        - event: ERC20ListedInfo(uint256,uint256,uint256,uint256)
+          handler: handleERC20ListedInfo
+        - event: ERC20Sold(indexed address,indexed address,indexed address,uint256,uint256)
+          handler: handleERC20Sold
+        - event: ERC20SoldInfo(uint256,uint256,uint256,uint256)
+          handler: handleERC20SoldInfo
+        - event: ERC721Listed(address,address,uint256,uint256)
+          handler: handleERC721Listed
+        - event: ERC721ListedInfo(uint256,uint256,uint256,uint256)
+          handler: handleERC721ListedInfo
+        - event: ERC721Sold(indexed address,indexed address,indexed address,uint256,uint256)
+          handler: handleERC721Sold
+        - event: ERC721SoldInfo(uint256,uint256,uint256,uint256)
+          handler: handleERC721SoldInfo
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleOwnershipTransferred
+      file: ./src/nft-marketplace.ts

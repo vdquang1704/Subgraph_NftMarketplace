@@ -1,0 +1,145 @@
+type ERC1155Listed @entity(immutable: true) {
+  id: Bytes!
+  nftAddress: Bytes! # address
+  seller: Bytes! # address
+  tokenId: BigInt! # uint256
+  amount: BigInt! # uint256
+  price: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type ERC1155ListedInfo @entity(immutable: true) {
+  id: Bytes!
+  totalTransactions: BigInt! # uint256
+  totalListedToken: BigInt! # uint256
+  totalListedValue: BigInt! # uint256
+  timestamp: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type ERC1155Sold @entity(immutable: true) {
+  id: Bytes!
+  nftAddress: Bytes! # address
+  seller: Bytes! # address
+  buyer: Bytes! # address
+  tokenId: BigInt! # uint256
+  amount: BigInt! # uint256
+  price: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type ERC1155SoldInfo @entity(immutable: true) {
+  id: Bytes!
+  totalTransactions: BigInt! # uint256
+  totalSoldToken: BigInt! # uint256
+  totalSoldValue: BigInt! # uint256
+  timestamp: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type ERC20Listed @entity(immutable: true) {
+  id: Bytes!
+  tokenAddress: Bytes! # address
+  seller: Bytes! # address
+  price: BigInt! # uint256
+  amount: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type ERC20ListedInfo @entity(immutable: true) {
+  id: Bytes!
+  totalTransactions: BigInt! # uint256
+  totalListedToken: BigInt! # uint256
+  totalListedValue: BigInt! # uint256
+  timestamp: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type ERC20Sold @entity(immutable: true) {
+  id: Bytes!
+  tokenAddress: Bytes! # address
+  seller: Bytes! # address
+  buyer: Bytes! # address
+  amount: BigInt! # uint256
+  price: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type ERC20SoldInfo @entity(immutable: true) {
+  id: Bytes!
+  totalTransactions: BigInt! # uint256
+  totalSoldToken: BigInt! # uint256
+  totalSoldValue: BigInt! # uint256
+  timestamp: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type ERC721Listed @entity(immutable: true) {
+  id: Bytes!
+  nftAddress: Bytes! # address
+  seller: Bytes! # address
+  tokenId: BigInt! # uint256
+  price: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type ERC721ListedInfo @entity(immutable: true) {
+  id: Bytes!
+  totalTransactions: BigInt! # uint256
+  totalListedNft: BigInt! # uint256
+  totalListedValue: BigInt! # uint256
+  timestamp: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type ERC721Sold @entity(immutable: true) {
+  id: Bytes!
+  nftAddress: Bytes! # address
+  seller: Bytes! # address
+  buyer: Bytes! # address
+  tokenId: BigInt! # uint256
+  price: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type ERC721SoldInfo @entity(immutable: true) {
+  id: Bytes!
+  totalTransactions: BigInt! # uint256
+  totalSoldNft: BigInt! # uint256
+  totalSoldValue: BigInt! # uint256
+  timestamp: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type OwnershipTransferred @entity(immutable: true) {
+  id: Bytes!
+  previousOwner: Bytes! # address
+  newOwner: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
